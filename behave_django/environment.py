@@ -123,6 +123,8 @@ class BehaveHooksMixin:
         """
         context.test.tearDownClass()
         context.test._post_teardown(run=True)
+        if context.test.doClassCleanups:
+            context.test.doClassCleanups()
         del context.test
 
 
